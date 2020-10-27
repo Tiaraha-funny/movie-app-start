@@ -5,7 +5,7 @@ export function Input() {
 
   return (
     <div>
-      { inputValue && <h3>{inputValue}</h3> }
+      { inputValue && <h3>{inputValue}</h3> } Input:
       <input
         value={inputValue}
         // onChange={(e) => setInputValue(e.target.value)}

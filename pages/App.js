@@ -1,26 +1,43 @@
 import React from "react";
-import { PropTypes } from "prop-types";
 import { Counter } from "./Counter";
 import { Accordion } from "./Accordion";
 import { Input } from "./Input";
-import { MovieList } from "./MovieList";
+import { PropTypes } from "prop-types";
+import { MovieList } from "./movies/MovieList";
+import { MovieDetails } from "./movies/movieDetails";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <MovieList />
-      <Input />
-      <Counter />
-      <Accordion />
-      <header className="App-header">
-        <HelloWorld name="Petah" greeting="Yo" />
-        <HelloWorld name="Jeannie" />
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/movie/:id">
+            <MovieDetails />
+          </Route>
+          <Route path="/">
+            <MovieList />
+          </Route>
+          <Route path="/">
+            <Input />
+          </Route>
+          <Route path="/">
+            <Counter />
+          </Route>
+          <Route path="/">
+            <Accordion />
+          </Route>
+          <Route path="/">
+            <HelloWorld name="Petah" greeting="Yo" />
+            <HelloWorld name="Jeannie" />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
-
 function HelloWorld({ greeting = "Hello", name }) {
   return (
     <div>
